@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #2c3855;
+  --primary-color-dark: #435681;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --extra-light: #f3f4f6;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --green:#011400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.vakeel__planners {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: var(--text-dark);
+  margin-top: 0.5px;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.link a {
+  font-weight: 500;
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.link a:hover {
+  color: var(--primary-color);
+}
+
+.header__container {
+  padding: 1rem 1rem 5rem 1rem;
+}
+
+.header__image__container {
+  position: relative;
+  min-height: 500px;
+  background-image: linear-gradient(
+      to right,
+      #2c3855e6,
+      rgba(100, 187, 168, 0.1)
+    ),
+    url("/static/images/header.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+}
+
+.header__content {
+  max-width: 600px;
+  padding: 5rem 2rem;
+}
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.header__content p {
+  color: var(--extra-light);
+}
+
+.small__container {
+  position: absolute;
+  bottom: -5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 6rem);
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Centers content vertically */
+  gap: 1rem;
+  text-align: center;  
+  padding: 2rem;    
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 255);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.small__container h2 {
+    font-size: 2rem;     /* Adjust font size */
+    color: #333;         /* Choose a color */
+    font-weight: bold;   /* Optional: Makes the font bold */
+}
+
+
+.popular__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.popular__card {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popular__content {
+  padding: 1rem;
+}
+
+.popular__card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.popular__card__header h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.popular__content p {
+  color: var(--text-light);
+}
+
+.client {
+  background-color: var(--extra-light);
+}
+
+.client__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.client__card {
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px rgba(255, 255, 0, 0);
+}
+
+.client__card img {
+  max-width: 80px;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 100%;
+}
+
+.client__card p {
+  text-align: center;
+  color: var(--text-dark);
+}
+
+
+.footer {
+  background-color: var(--extra-light);
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.footer__col h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer__col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer__col p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__col p:hover {
+  color: var(--text-dark);
+}
+
+.footer__bar {
+  position: relative;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-align: right;
+  overflow: hidden;
+}
+
+.footer__bar::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 28rem;
+  transform: translateY(-50%);
+  width: 20rem;
+  height: 2px;
+  background-color: var(--text-light);
+}
+
+@media (width < 900px) {
+  .booking__container form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popular__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .client__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width < 600px) {
+  .nav__links {
+    display: none;
+  }
+
+  .header__container {
+    padding-bottom: 25rem;
+  }
+
+  .booking__container {
+    flex-direction: column;
+    bottom: -25rem;
+  }
+
+  .booking__container form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .client__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer__container {
+    gap: 2rem;
+  }
+}
+
+
+.services__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.services__header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.services__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.services__card {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services__content {
+  padding: 1rem;
+}
+
+.services__card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.services__card__header h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.faq-section {
+  margin: 50px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.faq-container {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.faq {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.faq-question {
+  font-size: 1.2em;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq.active .faq-answer {
+  max-height: 150px;
+}
+
+.faq-button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+.btn-login {
+  padding: 0.5rem 1rem;
+  background-color: skyblue;
+  color: var(--white);
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: deepskyblue;
+  color: var(--white);
+}
+
+    </style>
+    <title>The Vakeel & Co</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo"><span>The Vakeel & Co</span>
+        <span class="vakeel__planners"></span>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="{{ url_for('insure') }}">Aware About Insurance</a></li>
+        <li class="link"><a href="#">About Us</a></li>
+        <li class="link"><a href="#">Contact Us</a></li>
+        <li class="link"><a href="{{ url_for('login') }}" class="btn-login">Login</a></li>
+      </ul>
+    </nav>
+    <header class="section__container header__container">
+      <div class="header__image__container">
+        <div class="header__content">
+          <h1>Secure Your Rights, Protect Your Future</h1>
+          <p>Expert Legal Solutions for Insurance Cases.</p>
+        </div>
+        <div class="small__container">
+          <h2>Welcome to Vakeeel&CO </h2>
+      </div>
+
+    </header>
+
+  
+    
+    <section class="section__container services__container">
+        <h2 class="section__header">What We Do</h2>
+        <div class="services__grid">
+          <div class="services__card">
+            <img src="{{ url_for('static', filename='images/insurance-claims.jpg') }}" alt="Example Image">
+            <div class="services__content">
+              <div class="services__card__header">
+                <h4>Insurance Claims</h4>
+              </div>
+              <p>We help resolve disputes and ensure fair settlements for insurance claims.</p>
+            </div>
+          </div>
+          <div class="services__card">
+            <img src="{{ url_for('static', filename='images/policy-disputes.png') }}" alt="Example Image">
+            <div class="services__content">
+              <div class="services__card__header">
+                <h4>Policy Disputes</h4>
+              </div>
+              <p>Our team specializes in handling disputes related to insurance policy interpretations.</p>
+            </div>
+          </div>
+          <div class="services__card">
+            <img src="{{ url_for('static', filename='images/liability-cases.jpg') }}" alt="Example Image">
+            <div class="services__content">
+              <div class="services__card__header">
+                <h4>Liability Cases</h4>
+              </div>
+              <p>We represent clients in liability cases, ensuring their rights are protected.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    <section class="client">
+      <div class="section__container client__container">
+        <h2 class="section__header">What our client say</h2>
+        <div class="client__grid">
+          <div class="client__card">
+            <img src="{{ url_for('static', filename='images/client-1.jpg') }}" alt="Example Image">
+            <p>
+                "The Vakeeel&CO helped us resolve a complex insurance claim after our home was damaged in a fire. Their professionalism and dedication were impressive, and they kept us informed every step of the way. We couldn’t have asked for a better legal team!" — Ravi & Priya, Bengaluru
+            </p>
+          </div>
+          <div class="client__card">
+            <img src="{{ url_for('static', filename='images/client-2.jpg') }}" alt="Example Image">
+            <p>
+                "We were overwhelmed with a denied health insurance claim, but The Vakeeel&CO fought for us and secured the coverage we needed. Their expertise in insurance law was evident, and we are so grateful for their support." — Shivani, Mumbai
+
+            </p>
+          </div>
+          <div class="client__card">
+            <img src="{{ url_for('static', filename='images/client-3.jpg') }}" alt="Example Image">
+            <p>
+                "After an auto accident, my insurance company refused to cover my medical bills. The Vakeeel&CO took charge of the situation and negotiated a fair settlement. Their commitment and attention to detail were exceptional." — Aman, Delhi
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+          <div class="faq">
+              <h3 class="faq-question">What is an insurance claim advocate, and how can they help me?</h3>
+              <div class="faq-answer">
+                  <p>They specialize in assisting clients through the insurance claims process, ensuring fair settlements and providing expert advice.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">When is the right time to consult an insurance claim advocate?</h3>
+              <div class="faq-answer">
+                  <p>If your claim faces delays, reductions, or complications, an advocate can provide clarity and advocacy.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">Can I still seek help if my claim was denied?</h3>
+              <div class="faq-answer">
+                  <p>Absolutely. Advocates can review your denial and help appeal or reopen the claim for a better outcome.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">Do you assist with all insurance claim types?</h3>
+              <div class="faq-answer">
+                  <p>Our advocates handle various claims, including health, auto, and accidental insurance. Share your specifics, and we’ll guide you to the right advocate.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">Why should I consider hiring an insurance claim advocate?</h3>
+              <div class="faq-answer">
+                  <p>An advocate ensures your rights are upheld, offers insights into complex policies, and fights for a fair settlement.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">How can I know if my claim is treated fairly?</h3>
+              <div class="faq-answer">
+                  <p>Unjustified delays or unexplained denials may indicate issues. An advocate can assess and advise on the fairness of your case.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">How do your services differ from a public adjuster?</h3>
+              <div class="faq-answer">
+                  <p>Our advocates focus on a client’s rights and the overall claims process, supporting you beyond just adjusting claims.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">What is the fee for hiring an advocate?</h3>
+              <div class="faq-answer">
+                  <p>Fees vary; we offer options including contingency fees, where you pay only if compensated. Reach out for a free consultation.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">How long will it take to resolve my claim?</h3>
+              <div class="faq-answer">
+                  <p>The timeframe depends on claim complexity and insurance company response. Our advocates work to expedite your process.</p>
+              </div>
+          </div>
+          <div class="faq">
+              <h3 class="faq-question">How do I start?</h3>
+              <div class="faq-answer">
+                  <p>Contact us via our form, phone, or email. We offer a free consultation to understand your needs and plan the next steps.</p>
+              </div>
+          </div>
+          <button class="faq-button">View More</button>
+      </div>
+  </section>
+  <script>
+      const faqs = document.querySelectorAll('.faq-question');
+  
+      faqs.forEach(faq => {
+          faq.addEventListener('click', function() {
+              this.parentNode.classList.toggle('active');
+          });
+      });
+  </script>
+  
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>About The Vakeel & Co</h3>
+          <p>
+            The Vakeeel&CO is a law firm specializing in insurance-related cases. With extensive experience in insurance law, our team is dedicated to protecting your rights and providing personalized legal solutions. Whether it's claim disputes or liability issues, we guide you through the legal process with clarity and integrity, ensuring the best possible outcome for your case.
+          </p>
+          <p>
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <p>About Us</p>
+          <p>Our Team</p>
+          <p>Blog</p>
+          <p>Book</p>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <p>FAQs</p>
+          <p>Terms & Conditions</p>
+          <p>Privacy Policy</p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <p><a href="mailto:thevakeelandco@gmail.com">thevakeelandco@gmail.com</a></p>
+          <p><a href="#">+91 9999999999</a></p>
+          <p><a href="#">+91 7079304294</a></p>
+          <p><a href="#">+91 8522459583</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+      :root {
+        --primary-color: #2c3855;
+        --primary-color-dark: #435681;
+        --text-dark: #333333;
+        --text-light: #767268;
+        --extra-light: #f3f4f6;
+        --white: #ffffff;
+        --max-width: 1200px;
+        --green: #011400;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 5rem 1rem;
+      }
+
+      .section__header {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        text-align: center;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        width: 100%;
+        display: flex;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 2rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav__logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .vakeel__planners {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 100;
+        color: var(--text-dark);
+        margin-top: 0.5px;
+      }
+
+      .nav__links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .link a {
+        font-weight: 500;
+        color: var(--text-light);
+        transition: 0.3s;
+      }
+
+      .link a:hover {
+        color: var(--primary-color);
+      }
+
+      .header__container {
+        padding: 1rem 1rem 5rem 1rem;
+      }
+
+      .header__image__container {
+        position: relative;
+        min-height: 500px;
+        background-image: linear-gradient(
+            to right,
+            #2c3855e6,
+            rgba(100, 187, 168, 0.1)
+          ),
+          url("/static/images/header.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 2rem;
+      }
+
+      .header__content {
+        max-width: 500px;
+        padding: 5rem 2rem;
+      }
+
+      .header__content h1 {
+        margin-bottom: 1rem;
+        font-size: 3.5rem;
+        line-height: 4rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      .header__content p {
+        color: var(--extra-light);
+      }
+
+      .footer {
+        background-color: var(--extra-light);
+      }
+
+      .footer__container {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        gap: 5rem;
+      }
+
+      .footer__col h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .footer__col h4 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .footer__col p {
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .footer__col p:hover {
+        color: var(--text-dark);
+      }
+
+      .footer__bar {
+        position: relative;
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 1rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-light);
+        text-align: right;
+        overflow: hidden;
+      }
+
+      .footer__bar::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: 28rem;
+        transform: translateY(-50%);
+        width: 20rem;
+        height: 2px;
+        background-color: var(--text-light);
+      }
+
+      .btn-login {
+        padding: 0.5rem 1rem;
+        background-color: skyblue;
+        color: var(--white);
+        border-radius: 5px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn-login:hover {
+        background-color: deepskyblue;
+        color: var(--white);
+      }
+
+      .question-answer {
+        margin-bottom: 2rem;
+      }
+
+      .question-answer h3 {
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+      }
+
+      .question-answer p {
+        margin-left: 1rem;
+        color: var(--text-light);
+      }
+
+      .question-answer ul {
+        margin-left: 2rem;
+        list-style-type: disc;
+      }
+    </style>
+    <title>The Vakeel & Co</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__logo">
+        <span>The Vakeel & Co</span>
+        <span class="vakeel__planners"></span>
+      </div>
+      <ul class="nav__links">
+        <li class="link"><a href="{{ url_for('insure') }}">Aware About Insurance</a></li>
+        <li class="link"><a href="#">About Us</a></li>
+        <li class="link"><a href="#">Contact Us</a></li>
+        <li class="link"><a href="{{ url_for('login') }}" class="btn-login">Login</a></li>
+      </ul>
+    </nav>
+    <header class="section__container header__container">
+      <div class="header__image__container">
+        <div class="header__content">
+          <h1>Secure Your Rights, Protect Your Future</h1>
+          <p>Expert Legal Solutions for Insurance Cases.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section__container">
+        <h2 class="section__header">Insurance Awareness Details</h2>
+        <div class="question-answer">
+          <h3>1. What Does an Insurance Claim Lawyer Do?</h3>
+          <p>
+            An insurance claim lawyer is a legal professional specializing in helping clients with insurance claims. With deep knowledge of insurance law and the complexities of the claims process, they guide clients through each step to protect their legal rights. These lawyers assist with various types of claims, including health, life, property, and liability insurance, ensuring clients receive fair treatment and the benefits they are entitled to.
+          </p>
+        </div>
+        <div class="question-answer">
+          <h3>2. What is the Role of Insurance Claim Lawyer?</h3>
+          <p>
+            The role of insurance claim lawyers is to provide clients with legal advice and assistance throughout the claim process. They can help clients to file a claim, negotiate with insurance companies, and represent them in court if necessary. Insurance claim lawyers work to ensure that clients receive the compensation that they are entitled to under their insurance policies.
+          </p>
+        </div>
+        <div class="question-answer">
+          <h3>3. What Is the Process of Insurance Claiming?</h3>
+          <p>
+            The insurance claims process is the series of steps policyholders follow to access the benefits of their insurance policies. While the specifics may vary depending on the type of insurance and policy details, the process generally includes the following steps:
+          </p>
+          <ul>
+            <li><strong>Reporting the Loss:</strong> Promptly reporting the loss to the insurance company via phone, email, or online.</li>
+            <li><strong>Filing the Claim:</strong> Submitting required documents to the insurer, such as a claim form and supporting documents.</li>
+            <li><strong>Claim Investigation:</strong> The insurance company investigates to verify the claim’s legitimacy.</li>
+            <li><strong>Claim Evaluation:</strong> The insurer evaluates the claim and calculates the compensation amount due.</li>
+            <li><strong>Settlement:</strong> The insurer presents a settlement offer, which the policyholder can accept or negotiate.</li>
+            <li><strong>Payment:</strong> The insurer releases payment if the settlement is accepted.</li>
+          </ul>
+        </div>
+      </section>
+  
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <h3>About The Vakeel & Co</h3>
+            <p>
+              The Vakeeel&CO is a law firm specializing in insurance-related cases. With extensive experience in insurance law, our team is dedicated to protecting your rights and providing personalized legal solutions. Whether it's claim disputes or liability issues, we guide you through the legal process with clarity and integrity, ensuring the best possible outcome for your case.
+            </p>
+            <p>
+            </p>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <p>About Us</p>
+            <p>Our Team</p>
+            <p>Blog</p>
+            <p>Book</p>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <p>FAQs</p>
+            <p>Terms & Conditions</p>
+            <p>Privacy Policy</p>
+          </div>
+          <div class="footer__col">
+            <h4>Contact Us</h4>
+            <p><a href="mailto:thevakeelandco@gmail.com">thevakeelandco@gmail.com</a></p>
+            <p><a href="#">+91 9999999999</a></p>
+            <p><a href="#">+91 7079304294</a></p>
+            <p><a href="#">+91 8522459583</a></p>
+          </div>
+        </div>
+      </footer>
+    </body>
+  </html>  
